@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_view,access_student view,model_institution_student,"",1,1,1,1
+access_teacher_view,access_teacher_view,model_institution_teacher,"",1,1,1,1
+access_course_view,access_course_view,model_institution_course,,1,1,1,1
+access_category_view,access_category_view,model_institution_category,,1,1,1,1
+access_batch_view,access_batch_view,model_institution_batch,,1,1,1,1

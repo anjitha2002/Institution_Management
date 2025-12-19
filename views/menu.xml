@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="institution_menu_root"
+                  name="Institution"
+                  sequence="10"/>
+        <menuitem id="institution_student_menu"
+                  name="Student"
+                  parent="institution_menu_root"
+                  action="institution.action_student_view"
+                  sequence="1"/>
+
+        <menuitem id="institution_teacher_menu"
+                  name="Teacher"
+                  parent="institution_menu_root"
+                  action="institution.action_teacher_view"
+                  sequence="2"/>
+
+         <menuitem id="institution_course_menu"
+                  name="Course"
+                  parent="institution_menu_root"
+                  action="institution.action_course_view"
+                  sequence="3"/>
+
+        <menuitem id="institution_category_menu"
+                  name="Category"
+                  parent="institution_menu_root"
+                  action="institution.action_category_view"
+                  sequence="4"/>
+
+
+
+         <menuitem id="institution_batch_menu"
+                  name="Batch"
+                  parent="institution_menu_root"
+                  action="institution.action_batch_view"
+                  sequence="5"/>
+    </data>
+
+
+</odoo>
