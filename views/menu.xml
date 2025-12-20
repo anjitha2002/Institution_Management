@@ -35,6 +35,18 @@
                   parent="institution_menu_root"
                   action="institution.action_batch_view"
                   sequence="5"/>
+
+         <menuitem id="institution_attendance_menu"
+                  name="Attendance"
+                  parent="institution_menu_root"
+                  action="institution.action_attendance_view"
+                  sequence="6"/>
+
+         <menuitem id="institution_fee_payment_menu"
+                  name="Fee_payments"
+                  parent="institution_menu_root"
+                  action="institution.action_fee_payment_view"
+                  sequence="7"/>
     </data>
 
 

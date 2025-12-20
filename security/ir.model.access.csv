@@ -4,3 +4,5 @@ access_teacher_view,access_teacher_view,model_institution_teacher,"",1,1,1,1
 access_course_view,access_course_view,model_institution_course,,1,1,1,1
 access_category_view,access_category_view,model_institution_category,,1,1,1,1
 access_batch_view,access_batch_view,model_institution_batch,,1,1,1,1
+access_attendance_view,access_attendance_view,model_institution_attendance,,1,1,1,1
+access_fee_payment_view,access_fee_payment_view,model_institution_fee_payment,,1,1,1,1

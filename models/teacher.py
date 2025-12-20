@@ -1,4 +1,4 @@
-from odoo import fields,models
+from odoo import fields,models,api
 class Teacher(models.Model):
     _name = "institution.teacher"
     _description = 'Teacher'
@@ -10,5 +10,12 @@ class Teacher(models.Model):
 
 
 
-    # department_id = fields.Many2one('institution.department',string='Department')
+
     course_ids = fields.One2many('institution.course','teacher_id',string='Course')
+
+    course_count=fields.Integer(compute='_compute_course_count',store=True)
+
+    @api.depends('course_ids')
+    def _compute_course_count(self):
+        for course in self:
+            course.course_count = len(course.course_ids)

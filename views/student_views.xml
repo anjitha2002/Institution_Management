@@ -3,16 +3,27 @@
 <odoo>
 <data>
 <!--    form view-->
+
+
+
     <record id="student_view_form" model="ir.ui.view">
         <field name="name">Student_student_form_view</field>
         <field name="model">institution.student</field>
         <field name="arch" type="xml">
             <form string="Institution Student">
+<!--                 <record id="seq_student_number" model="ir.sequence">-->
+<!--                     <field name="name">Student Sequence</field>-->
+<!--                     <field name="code">institution.student</field>-->
+<!--                     <field name="prefix">STU/%(range_year)s/</field>-->
+<!--                     <field name="padding">5</field>-->
+<!--                     <field name="company_id" eval="False"/>-->
+<!--                 </record>-->
+
 
                 <sheet>
                     <group string="Student detail">
                         <field name="name"/>
-                        <field name="student_no"/>
+
                         <field name="date_of_birth"/>
                         <field name="age"/>
                     </group>
@@ -20,12 +31,19 @@
                      <field name="guardian_name"/>
                      <field name="guardian_phone"/>
                     </group>
-                    <group string="Academic details">
-                      <field name="fees_status"/>
-                           <field name="course_id"/>
+                    <group>
+                         <field name="course_ids"/>
                       <field name="batch_id"/>
 
+                    </group>
+                    <group string="Fee details">
+                        <field name="fee_payment_ids"/>
+                        <field name="total_fees_paid"/>
 
+                      <field name="fees_status"/>
+                    </group>
+                    <group>
+                        <field name="attendance_percentage"/>
                     </group>
                 </sheet>
             </form>
@@ -41,9 +59,9 @@
 
 
                         <field name="name"/>
-                        <field name="student_no"/>
 
-                    <field name="course_id"/>
+
+                    <field name="course_ids"/>
                       <field name="batch_id"/>
 
                         <field name="fees_status"/>
@@ -52,6 +70,7 @@
                 </list>
         </field>
      </record>
+
 
 <!--    action-->
 

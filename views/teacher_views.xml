@@ -13,6 +13,7 @@
                     <field name="email"/>
                     <field name="experience"/>
                     <field name="course_ids"/>
+                    <field name="course_count"/>
                 </group>
             </sheet>
         </form>

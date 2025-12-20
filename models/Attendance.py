@@ -5,8 +5,9 @@ class Attendance(models.Model):
     _name = 'institution.attendance'
     _description = 'Attendance'
     date=fields.Date(string='Date of Attendance',default=fields.Date.today)
-    batch_id=fields.Many2one('institution.batch',string='Batch')
-    student_id=fields.Many2one('institution.student',string='Student')
-status=fields.Selection([('present','Present'),('absent','Absent')],default="present" )
+    student_id = fields.Many2one('institution.student', required=True)
+    # batch_id=fields.Many2one(related='student_id.batch_id',store=True)
+
+    status=fields.Selection([('present','Present'),('absent','Absent')],required=True)
 
 
