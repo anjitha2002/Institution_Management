@@ -10,7 +10,7 @@ class Student(models.Model):
     _name = 'institution.student'
     _description = 'Student'
     name = fields.Char(string='Name', required=True)
-    student_no=fields.Char(default=lambda self: ('New'),readonly=True,index=True,copy=False,required=True)
+    student_no=fields.Char(string="Student Number", readonly=True,copy=False,default='New')
 
     date_of_birth = fields.Datetime(string='Date of Birth', required=True)
     age = fields.Integer(compute='_compute_age',string='Age',store=True)
@@ -21,7 +21,7 @@ class Student(models.Model):
     course_ids = fields.Many2one(related='batch_id.course_ids',string='Course',store=True)
     batch_id = fields.Many2one('institution.batch',string='Batch',required=True)
 
-    fee_payment_ids=fields.One2many('institution.fee_payment','student_id')
+    fee_payment_ids=fields.One2many('institution.fee_payment','student_id',string='Fee Payment',readonly=True)
     total_fees_paid=fields.Float(compute='_compute_fees',store=True)
     fees_status=fields.Selection([
         ('paid','Paid'),
@@ -54,11 +54,13 @@ class Student(models.Model):
             present=len(a.attendance_ids.filtered(lambda p: p.status == 'present'))
             a.attendance_percentage=(present/total*100) if total else 0
 
-    @api.model
-    def create(self, vals):
-        if vals.get('student_no' ,('New'))==('New'):
-            vals['student_no']=self.env['ir.sequence'].next_by_code('institution.student') or ('New')
-            return super(Student, self).create(vals)
+    @api.model_create_multi
+    def create(self, vals_list):
+        for vals in vals_list:
+            if vals.get('student_no','New') == 'New':
+                vals['student_no']= self.env['ir.sequence'].next_by_code('institution.student') or 'New'
+        return super(Student, self).create(vals)
+
 
 
 
