@@ -5,10 +5,11 @@ from odoo import models,fields,api
 from odoo.orm.decorators import readonly
 from odoo.orm.types import ValuesType
 
-
 class Student(models.Model):
     _name = 'institution.student'
     _description = 'Student'
+
+    user_id=fields.Many2one('res.users',string='User',required=True)
     name = fields.Char(string='Name', required=True)
     student_no=fields.Char(string="Student Number", readonly=True,copy=False,default='New')
 
