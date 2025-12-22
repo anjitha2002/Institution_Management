@@ -1,8 +1,10 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_student_view,access_student view,model_institution_student,"",1,1,1,1
-access_teacher_view,access_teacher_view,model_institution_teacher,"",1,1,1,1
-access_course_view,access_course_view,model_institution_course,,1,1,1,1
-access_category_view,access_category_view,model_institution_category,,1,1,1,1
-access_batch_view,access_batch_view,model_institution_batch,,1,1,1,1
-access_attendance_view,access_attendance_view,model_institution_attendance,,1,1,1,1
-access_fee_payment_view,access_fee_payment_view,model_institution_fee_payment,,1,1,1,1
+access_student,institution student,model_institution_student,base.group_user,1,1,1,1
+access_teacher,institution teacher,model_institution_teacher,base.group_user,1,1,1,1
+access_course,institution course,model_institution_course,base.group_user,1,1,1,1
+access_category,institution category,model_institution_category,base.group_user,1,1,1,1
+access_batch,institution batch,model_institution_batch,base.group_user,1,1,1,1
+access_attendance,institution attendance,model_institution_attendance,base.group_user,1,1,1,1
+access_fee_payment,institution fees,model_institution_fee_payment,base.group_user,1,1,1,1
+access_teacher_student,institution teacher student,model_institution_student,institution.group_institution_teacher,1,0,0,0
+access_student_own_data,institution student own data,model_institution_student,institution.group_institution_student,1,0,0,0
