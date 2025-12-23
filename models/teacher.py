@@ -3,14 +3,13 @@ class Teacher(models.Model):
     _name = "institution.teacher"
     _description = 'Teacher'
 
-    user_id=fields.Many2one('res.users',string='User',ondelete='cascade')
-
-
+    user_id=fields.Many2one('res.users',string='User',required=True)
     name = fields.Char(string='Teacher Name',required=True)
 
     phone = fields.Char(string='Phone Number',required=True)
     email = fields.Char(string='Email Address',required=True)
     experience = fields.Text(string='Experience',required=True)
+
 
 
 
