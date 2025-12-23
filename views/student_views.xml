@@ -14,6 +14,7 @@
 
                 <sheet>
                     <group string="Student detail">
+                        <field name="user_id"/>
                         <field name="student_no" readonly="1"/>
                         <field name="name"/>
 

@@ -8,6 +8,7 @@
         <form string="Institution Teachers">
             <sheet>
                 <group>
+                    <field name="user_id"/>
                     <field name="name"/>
                     <field name="phone"/>
                     <field name="email"/>

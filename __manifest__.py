@@ -12,6 +12,7 @@
     'depends':['base'],
 'data':[
 
+
     'security/institution_security_group.xml',
     'security/institution_rule.xml',
     'security/ir.model.access.csv',

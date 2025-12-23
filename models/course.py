@@ -9,6 +9,7 @@ class Course(models.Model):
 
     category_ids=fields.Many2one('institution.category',string='Category',required=True)
     teacher_id = fields.Many2one('institution.teacher',string='Teacher')
+    student_id = fields.One2many('institution.student','course_ids',string='Students')
 
 
     batch_id=fields.One2many('institution.batch','course_ids',string='Batch')

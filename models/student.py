@@ -9,7 +9,7 @@ class Student(models.Model):
     _name = 'institution.student'
     _description = 'Student'
 
-    user_id=fields.Many2one('res.users',string='User',required=True)
+    user_id = fields.Many2one('res.users', string='User', ondelete='cascade')
     name = fields.Char(string='Name', required=True)
     student_no=fields.Char(string="Student Number", readonly=True,copy=False,default='New')
 
@@ -19,7 +19,7 @@ class Student(models.Model):
     guardian_name = fields.Char(string='Guardian Name', required=True)
     guardian_phone=fields.Char(string='Guardian Phone', required=True)
 
-    course_ids = fields.Many2one(related='batch_id.course_ids',string='Course',store=True)
+    course_ids = fields.Many2one('institution.course',string='Course',required=True)
     batch_id = fields.Many2one('institution.batch',string='Batch',required=True)
 
     fee_payment_ids=fields.One2many('institution.fee_payment','student_id',string='Fee Payment',readonly=True)
@@ -30,8 +30,6 @@ class Student(models.Model):
     ],compute='_compute_fees',store=True)
 
     attendance_ids=fields.One2many('institution.attendance','student_id')
-
-
     attendance_percentage=fields.Float(compute='_compute_attendance',store=True)
 
 
