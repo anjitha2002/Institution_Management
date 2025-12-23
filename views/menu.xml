@@ -3,15 +3,11 @@
     <data>
         <menuitem id="institution_menu_root"
                   name="Institution"
-
                   sequence="10"/>
 
         <menuitem id="institution_student_menu"
                   name="Student"
                   parent="institution_menu_root"
-                  action="institution.action_student_view"
-
-
                   sequence="1"/>
 
         <menuitem id="institution_teacher_menu"
@@ -40,17 +36,25 @@
                   action="institution.action_batch_view"
                   sequence="5"/>
 
+           <menuitem id="institution_student_profile_menu"
+                  name="Student Profile"
+                  parent="institution_student_menu"
+                  action="institution.action_student_view"
+                  sequence="1"/>
+
+
+
          <menuitem id="institution_attendance_menu"
                   name="Attendance"
                   parent="institution_student_menu"
                   action="institution.action_attendance_view"
-                  sequence="1"/>
+                  sequence="2"/>
 
          <menuitem id="institution_fee_payment_menu"
                   name="Fee_payments"
                   parent="institution_student_menu"
                   action="institution.action_fee_payment_view"
-                  sequence="2"/>
+                  sequence="3"/>
     </data>
 
 

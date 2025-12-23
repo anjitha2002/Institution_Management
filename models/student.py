@@ -9,7 +9,7 @@ class Student(models.Model):
     _name = 'institution.student'
     _description = 'Student'
 
-    user_id=fields.Many2one('res.users',string='User',required=True)
+    user_id=fields.Many2one('res.users',string='User',ondelete='cascade')
     name = fields.Char(string='Name', required=True)
     student_no=fields.Char(string="Student Number", readonly=True,copy=False,default='New')
 
