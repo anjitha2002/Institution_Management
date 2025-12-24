@@ -60,6 +60,12 @@
                   parent="institution_student_menu"
                   action="institution.action_fee_payment_view"
                   sequence="3"/>
+
+        <menuitem id="institution_student_my_profile"
+                  name="My Profile"
+                  parent="institution_menu_root"
+                  action="action_student_self"
+                  groups="institution.group_institution_student"/>
     </data>
 
 

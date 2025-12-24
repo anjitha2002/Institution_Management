@@ -13,7 +13,7 @@
 
                     <sheet>
                         <group string="Student detail">
-                            <field name="user_id"/>
+                            <field name="user_id" readonly="1" default="lambda self: self.env.user"/>
 
                             <field name="student_no" readonly="1"/>
                             <field name="name"/>
@@ -58,13 +58,52 @@
                     </list>
             </field>
          </record>
+
+
+
+
+<!--        student search -->
+
+
+         <record id="student_view_search" model="ir.ui.view">
+            <field name="name">institution.student.search</field>
+            <field name="model">institution.student</field>
+            <field name="arch" type="xml">
+
+                    <search string="search">
+                        <field name="name"/>
+                        <field name="student_no"/>
+                        <field name="batch_id"/>
+                        <field name="course_ids"/>
+                        <filter string="My record"
+                                name="my_records"
+                                domain="[('user_id', '=' , uid)]"/>
+                    </search>
+            </field>
+         </record>
     <!--    action-->
 
          <record id="action_student_view" model="ir.actions.act_window">
              <field name="name">Student Data</field>
              <field name="res_model">institution.student</field>
              <field name="view_mode">list,form</field>
+             <field name="search_view_id" ref="student_view_search"/>
          </record>
+
+
+
+
+<!--        action student self-->
+
+
+          <record id="action_student_self" model="ir.actions.act_window">
+             <field name="name">My Profile</field>
+             <field name="res_model">institution.student</field>
+             <field name="view_mode">form</field>
+              <field name="domain">[('user_id' , '=' , uid)]</field>
+              <field name="context">{'create' : False}</field>
+         </record>
+
 
     </data>
 </odoo>

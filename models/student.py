@@ -9,7 +9,7 @@ class Student(models.Model):
     _name = 'institution.student'
     _description = 'Student'
 
-    user_id=fields.Many2one('res.users',string='User',required=True)
+    user_id=fields.Many2one('res.users',string='User',required=True,ondelete='cascade')
     name = fields.Char(string='Name', required=True)
     student_no=fields.Char(string="Student Number", readonly=True,copy=False,default='New')
 
@@ -61,6 +61,13 @@ class Student(models.Model):
             if vals.get('student_no','New') == 'New':
                 vals['student_no']= self.env['ir.sequence'].next_by_code('institution.student') or 'New'
         return super(Student, self).create(vals)
+
+
+    @api.model
+    def default_get(self, fields_list):
+        res = super().default_get(fields_list)
+        res['user_id'] = self.env.user.id
+        return res
 
 
 
