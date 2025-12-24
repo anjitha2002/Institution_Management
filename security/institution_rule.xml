@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <data>
+
 <!--        Teacher access their student data only-->
         <record id="rule_teacher_its_students" model="ir.rule">
             <field name="name">Teacher Own students</field>
             <field name="model_id" ref="model_institution_student"/>
             <field name="domain_force">
-                [('course_ids.teacher_id.user_id', '=', user.id)]</field>
-            <field name="groups" eval="[(4,ref('institution.group_institution_teacher'))]"/>
+                [('batch_id.course_ids.teacher_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('institution.group_institution_teacher'))]"/>
         </record>
 
 
@@ -19,7 +20,34 @@
             <field name="model_id" ref="model_institution_student"/>
             <field name="domain_force">
                 [('user_id', '=' ,user.id)]</field>
+            <field name="perm_read" eval="True"/>
+            <field name="perm_write" eval="False"/>
+            <field name="perm_create" eval="False"/>
+            <field name="perm_unlink" eval="False"/>
             <field name="groups" eval="[(4,ref('institution.group_institution_student'))]"/>
+        </record>
+
+
+
+<!--        Teacher can access only their courses-->
+
+         <record id="rule_teacher_its_course" model="ir.rule">
+            <field name="name">Teacher Own Courses</field>
+            <field name="model_id" ref="model_institution_course"/>
+            <field name="domain_force">
+                [('teacher_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('institution.group_institution_teacher'))]"/>
+        </record>
+
+
+<!--        teacher access own batches-->
+
+         <record id="rule_teacher_its_Batch" model="ir.rule">
+            <field name="name">Teacher Own Batches</field>
+            <field name="model_id" ref="model_institution_batch"/>
+            <field name="domain_force">
+                [('course_ids.teacher_id.user_id', '=', user.id)]</field>
+            <field name="groups" eval="[(4, ref('institution.group_institution_teacher'))]"/>
         </record>
 
 

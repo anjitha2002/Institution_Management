@@ -3,12 +3,17 @@
     <data>
         <menuitem id="institution_menu_root"
                   name="Institution"
+                  groups="institution.group_institution_student,institution.group_institution_teacher,base.group_user"
                   sequence="10"/>
+
 
         <menuitem id="institution_student_menu"
                   name="Student"
                   parent="institution_menu_root"
-                  sequence="1"/>
+                  action="institution.action_student_view"
+
+
+                  sequence="1" />
 
         <menuitem id="institution_teacher_menu"
                   name="Teacher"
